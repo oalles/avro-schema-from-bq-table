@@ -1,0 +1,16 @@
+application:
+  project-id: ${PROJECT_ID:testprojectid}
+  dataset-name: ${DATASET_NAME:testdataset}
+  table-name: ${TABLE_NAME:testtable}
+  output-filename: "/home/omar/datav.avsc"
+spring:
+  application:
+    name: @project.artifactId@
+  cloud:
+    gcp:
+      credentials:
+        location: classpath:a-key.json
+      bigquery:
+        enabled: true
+        project-id: ${application.project-id}
+        dataset-name: "${application.dataset-name}"
